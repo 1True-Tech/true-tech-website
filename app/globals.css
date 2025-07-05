@@ -7,6 +7,7 @@
   --primary-500: #dfe7ff;
   --secondary: #1f4abf;
   --secondary-500: #2962ff;
+  --secondary-200: #BDCEFF;
 }
 
 @theme inline {
@@ -17,6 +18,7 @@
   --color-primary-500: var(--primary-500);
   --color-secondary: var(--secondary);
   --color-secondary-500: var(--secondary-500);
+  --color-secondary-200: var(--secondary-200);
   --color-neutral-900: #252525;
   --color-neutral-800: #303030;
   --color-neutral-700: #404040;
@@ -39,15 +41,23 @@
   }
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
 
+.scrollable::-webkit-scrollbar{
+    @apply w-2 h-2 rounded-full bg-transparent;
+}
+.scrollable::-webkit-scrollbar-thumb{
+    @apply rounded-full bg-primary/20;
+}
+.scrollableSmall::-webkit-scrollbar{
+    @apply w-[1px] h-[1px] rounded-full bg-transparent;
+}
+.scrollableSmall::-webkit-scrollbar-thumb{
+    @apply rounded-full bg-primary/20;
+}
+*{
+  @apply box-border;
+}
 body {
-  @apply font-poppins;
+  @apply font-poppins text-neutral-900 overflow-x-hidden overflow-y-auto;
   background: var(--background);
-  color: var(--foreground);
 }
