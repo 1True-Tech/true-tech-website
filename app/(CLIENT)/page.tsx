@@ -1,3 +1,4 @@
+import CustomButton from "@/components/ui/CustomButton";
 import AboutSection from "../../components/sections/AboutSection";
 import ContactSection from "../../components/sections/ContactSection";
 import HeroSection from "../../components/sections/HeroSection";
@@ -9,7 +10,7 @@ import Icons from "../../components/ui/Icons";
 
 export default function Home() {
   return (
-    <main className="w-full flex gap-[50px] flex-col">
+    <main className="w-full flex gap-[50px] flex-col h-[200vh]">
       <HeroSection/>
       <AboutSection/>
       <HowWeWorkSection/>
