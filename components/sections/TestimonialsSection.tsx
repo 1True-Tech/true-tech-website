@@ -46,19 +46,19 @@ export default function TestimonialsSection() {
 
         <section className="h-fit flex gap-4 flex-col items-end">
           <TestimonialCard
-            image="/logo.png"
+            image="/testimonial-images/image-2.jpeg"
             client_name="Jane Smith"
             description="True Tech guided us through every step with transparency and expertise. Our new platform launched on time, under budget, and exceed all performance benchmarks."
           />
           <TestimonialCard
-            image="/logo.png"
-            client_name="Jane Smith"
-            description="True Tech guided us through every step with transparency and expertise. Our new platform launched on time, under budget, and exceed all performance benchmarks."
+            image="/testimonial-images/image.jpeg"
+            client_name="Rahul Singh"
+            description="Their team's agile approach meant we saw progress weekly. the quality of design and code is outstanding - Our user engagement has already jumped 40%."
           />
           <TestimonialCard
-            image="/logo.png"
-            client_name="Jane Smith"
-            description="True Tech guided us through every step with transparency and expertise. Our new platform launched on time, under budget, and exceed all performance benchmarks."
+            image="/testimonial-images/image-1.jpeg"
+            client_name="Pierre Samuel"
+            description="From initial discovery to ongoing support, True-Tech has been a true partner. They listened to our needs and delivered a solution that continues to drive our growth."
           />
         </section>
       </div>
