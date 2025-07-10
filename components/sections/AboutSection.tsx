@@ -22,21 +22,21 @@ export default function AboutSection() {
         </SectionSummary>
       </section>
 
-      <section className="h-fit grid gap-4 grid-cols-[repeat(auto-fill,_minmax(15rem,_1fr))] sm:grid-cols-[repeat(auto-fill,_minmax(12rem,_1fr))] place-items-center lg:grid-cols-[repeat(auto-fill,_minmax(15rem,_1fr))]">
+      <section className="h-fit grid gap-4 grid-cols-[repeat(auto-fill,_minmax(15rem,_1fr))] sm:grid-cols-[repeat(auto-fill,_minmax(12rem,_1fr))] lg:grid-cols-[repeat(auto-fill,_minmax(15rem,_1fr))]">
         <AboutCard
           icon_name="browsers"
           title="Custom Web Development for Your Business Needs"
           description="We build responsive and user-friendly websites that drive engagement."
        /> 
        <AboutCard
-          icon_name="browsers"
-          title="Custom Web Development for Your Business Needs"
-          description="We build responsive and user-friendly websites that drive engagement."
+          icon_name="globe_simple"
+          title="Boost Your Visibility with Expert SEO Services"
+          description="Our SEO strategies ensure your site ranks higher on search engines."
        /> 
        <AboutCard
-          icon_name="browsers"
-          title="Custom Web Development for Your Business Needs"
-          description="We build responsive and user-friendly websites that drive engagement."
+          icon_name="cursor_click"
+          title="Stunning Designs That Captivates and Converts"
+          description="We create visually appealing designs that resonates with your audience."
        /> 
       </section>
     </Section>
