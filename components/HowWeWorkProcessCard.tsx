@@ -23,8 +23,6 @@ export default function HowWeWorkProcessCard({
   useGSAP(() => {
     const card = cardRef.current;
     if (!card) return;
-    const toX = (card.parentElement?.clientWidth || 0) - card.clientWidth;
-    console.log(toX);
     gsap.to(card, {
       scrollTrigger: {
         trigger: card,
@@ -38,8 +36,6 @@ export default function HowWeWorkProcessCard({
           setPosition("out");
         },
       },
-      ease: "none",
-      x: -toX,
     });
   });
   return (

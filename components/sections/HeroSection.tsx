@@ -1,7 +1,7 @@
 import React from "react";
 import WorldSvg from "../extras/worldsvg";
 import Image from "next/image";
-import CustomButton from "../ui/CustomButton";
+import Button from "../ui/Button";
 import Icons from "../ui/Icons";
 import { Section, SectionSummary } from "../ui/SectionSummaryContent";
 
@@ -21,7 +21,7 @@ export default function HeroSection({}: Props) {
           design to elevate your business. Let us help you create a stunning
           online experience that drives results.
         </SectionSummary>
-        <CustomButton variant="fill" rightIcon={<Icons icon_name="arrow_right" weight="fill" />}>Start your project</CustomButton>
+        <Button variant="fill" rightIcon={<Icons icon_name="arrow_right" weight="fill" />}>Start your project</Button>
       </div>
       <div className="w-full flex items-end relative">
         <span className="w-[calc((100%/3)-20px)] -z-10 scale-125 translate-x-4 sm:translate-x-0 sm:scale-100 sm:w-[calc((100%/3)-50px)] shrink">

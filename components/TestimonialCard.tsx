@@ -67,24 +67,25 @@ export default function TestimonialCard({
           "text-neutral-200":position==="out",
         })}/>
       {/* image */}
-      <div className="size-20 flex items-center justify-center">
+      <div className="size-10 sm:size-14 shrink-0 md:size-20 rounded-full overflow-hidden flex items-center justify-center">
         <Image
           src={image}
           alt={`${client_name} image`}
-          width={500}
-          height={500}
+          width={200}
+          height={100}
           priority={false}
+          quality={50}
           className="size-full object-cover object-center"
         />
       </div>
 
       <div className="w-full flex flex-col gap-2">
         {/* title */}
-        <strong className="text-primary w-full text-sm sm:text-base font-bold leading-[160%]">
+        <strong className="text-primary w-full text-sm md:text-base font-bold leading-[160%]">
           {client_name}
         </strong>
         {/* description */}
-        <p className="text-neutral-900 text-xs sm:text-sm leading-[160%]">
+        <p className="text-neutral-900 text-xs md:text-sm leading-[160%]">
           {description}
         </p>
       </div>
