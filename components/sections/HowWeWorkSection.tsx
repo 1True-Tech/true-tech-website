@@ -10,7 +10,8 @@ type Props = {};
 
 export default function HowWeWorkSection({}: Props) {
   return (
-    <Section className="w-full py-16 grid grid-cols-1 sm:grid-cols-2 gap-5 items-center">
+    <Section className="w-full py-16">
+        <div className="w-full max-w-5xl grid grid-cols-1 sm:grid-cols-2 gap-5 items-center m-auto">
       {/* content */}
       <section className="flex flex-col gap-4">
         <SectionTagline>How we work</SectionTagline>
@@ -52,6 +53,8 @@ export default function HowWeWorkSection({}: Props) {
           description="Post-Launch, we handle maintenance, updates, and new features to keep you ahead."
         />
       </section>
+            </div>
+      
     </Section>
   );
 }
