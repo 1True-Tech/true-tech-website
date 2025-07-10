@@ -8,9 +8,9 @@ import {
 
 export default function AboutSection() {
   return (
-    <Section className="w-full py-16 bg-primary-500 grid grid-cols-1 sm:grid-cols-[1.5fr_2fr] gap-5 items-center">
+    <Section className="w-full py-16 bg-primary-500 flex flex-col lg:flex-row gap-5 items-center justify-between">
       {/* content */}
-      <section className="flex flex-col gap-4">
+      <section className="flex flex-col gap-4 lg:max-w-[49rem]">
         <SectionTagline>What we do</SectionTagline>
         <SectionHeadline>
           Transform Your Online Presence with TrueTech
@@ -22,7 +22,7 @@ export default function AboutSection() {
         </SectionSummary>
       </section>
 
-      <section className="h-fit grid gap-4 grid-cols-[repeat(auto-fill,_minmax(15rem,_1fr))] sm:grid-cols-[repeat(auto-fill,_minmax(12rem,_1fr))] lg:grid-cols-[repeat(auto-fill,_minmax(15rem,_1fr))]">
+      <section className="h-fit grid gap-4 grid-cols-1 md:grid-cols-2 lg:max-w-[33rem]">
         <AboutCard
           icon_name="browsers"
           title="Custom Web Development for Your Business Needs"

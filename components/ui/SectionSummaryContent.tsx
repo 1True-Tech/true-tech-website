@@ -7,7 +7,7 @@ export function SectionTagline({className, children, ...props}: React.DetailedHT
   return (
     <h2 {...props} className={
         clsx(
-            "w-fit relative font-bold text-primary before:absolute before:w-[calc((100%/2)-2dvw)] leading-[140%] before:h-[2px] before:bg-secondary before:rounded-full before:bottom-0",
+            "w-fit relative font-semibold text-xl md:text-2xl text-primary before:absolute before:w-[calc((100%/2)-2dvw)] leading-[140%] before:h-[2px] before:bg-secondary before:rounded-full before:bottom-0",
             className,
         )
     }>{children}</h2>
@@ -18,7 +18,7 @@ export function SectionHeadline({className, children, ...props}: React.DetailedH
   return (
     <h3 {...props} className={
         clsx(
-            "w-fit relative font-bold text-xl sm:text-3xl lg:text-5xl leading-[140%] text-secondary",
+            "w-fit relative font-bold text-3xl sm:text-5xl lg:text-5xl leading-[140%] text-secondary",
             className,
         )
     }>{children}</h3>

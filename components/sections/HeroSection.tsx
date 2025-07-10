@@ -13,7 +13,7 @@ export default function HeroSection({}: Props) {
       <WorldSvg className="w-full absolute top-0 left-0 pointer-events-none -z-10" />
       {/* headline */}
       <div className="w-full flex flex-col items-center justify-center gap-4">
-        <h1 className="max-w-lg text-2xl md:text-4xl leading-[140%] text-center text-secondary font-bold">
+        <h1 className="max-w-4xl text-3xl sm:text-5xl lg:text-5xl leading-[140%] text-center text-secondary font-bold">
           Transform Your Online Presence with TrueTech
         </h1>
         <SectionSummary className="max-w-lg text-base md:text-xl text-center">
