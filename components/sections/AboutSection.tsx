@@ -8,8 +8,9 @@ import {
 
 export default function AboutSection() {
   return (
-    <Section className="w-full py-16 bg-primary-500 grid grid-cols-1 sm:grid-cols-[1.5fr_2fr] gap-5 items-center">
+    <Section className="w-full py-10 sm:py-16 bg-primary-500">
       {/* content */}
+      <div className="w-full max-w-5xl grid grid-cols-1 sm:grid-cols-[1.5fr_2fr] gap-5 items-center m-auto">
       <section className="flex flex-col gap-4">
         <SectionTagline>What we do</SectionTagline>
         <SectionHeadline>
@@ -22,7 +23,7 @@ export default function AboutSection() {
         </SectionSummary>
       </section>
 
-      <section className="h-fit grid gap-4 grid-cols-[repeat(auto-fill,_minmax(15rem,_1fr))] sm:grid-cols-[repeat(auto-fill,_minmax(12rem,_1fr))] lg:grid-cols-[repeat(auto-fill,_minmax(15rem,_1fr))]">
+      <section className="h-fit grid gap-4 grid-cols-[repeat(auto-fill,_minmax(15rem,_1fr))] sm:grid-cols-2">
         <AboutCard
           icon_name="browsers"
           title="Custom Web Development for Your Business Needs"
@@ -39,6 +40,7 @@ export default function AboutSection() {
           description="We create visually appealing designs that resonates with your audience."
        /> 
       </section>
+      </div>
     </Section>
   );
 }
