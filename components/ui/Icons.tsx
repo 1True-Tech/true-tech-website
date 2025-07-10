@@ -18,7 +18,7 @@ import {
   XLogoIcon,
 } from "@phosphor-icons/react/dist/ssr";
 
-type icon_name =
+export type icon_name =
   | "list"
   | "arrow_right"
   | "browsers"
@@ -45,40 +45,41 @@ export default function Icons({
   size = 24,
   color = "currentColor",
   weight = "regular",
+  ...props
 }: Icon) {
   switch (icon_name) {
     case "list":
-      return <ListIcon size={size} color={color} weight={weight} />;
+      return <ListIcon size={size} color={color} weight={weight} {...props}/>;
     case "arrow_right":
-      return <ArrowRightIcon size={size} color={color} weight={weight} />;
+      return <ArrowRightIcon size={size} color={color} weight={weight} {...props}/>;
     case "browsers":
-      return <BrowsersIcon size={size} color={color} weight={weight} />;
+      return <BrowsersIcon size={size} color={color} weight={weight} {...props}/>;
     case "globe_simple":
-      return <GlobeSimpleIcon size={size} color={color} weight={weight} />;
+      return <GlobeSimpleIcon size={size} color={color} weight={weight} {...props}/>;
     case "cursor_click":
-      return <CursorClickIcon size={size} color={color} weight={weight} />;
+      return <CursorClickIcon size={size} color={color} weight={weight} {...props}/>;
     case "binoculars":
-      return <BinocularsIcon size={size} color={color} weight={weight} />;
+      return <BinocularsIcon size={size} color={color} weight={weight} {...props}/>;
     case "strategy":
-      return <StrategyIcon size={size} color={color} weight={weight} />;
+      return <StrategyIcon size={size} color={color} weight={weight} {...props}/>;
     case "rocket_launch":
-      return <RocketLaunchIcon size={size} color={color} weight={weight} />;
+      return <RocketLaunchIcon size={size} color={color} weight={weight} {...props}/>;
     case "headset":
-      return <HeadsetIcon size={size} color={color} weight={weight} />;
+      return <HeadsetIcon size={size} color={color} weight={weight} {...props}/>;
     case "quotes":
-      return <QuotesIcon size={size} color={color} weight={weight} />;
+      return <QuotesIcon size={size} color={color} weight={weight} {...props}/>;
     case "x_logo":
-      return <XLogoIcon size={size} color={color} weight={weight} />;
+      return <XLogoIcon size={size} color={color} weight={weight} {...props}/>;
     case "linkedin_logo":
-      return <LinkedinLogoIcon size={size} color={color} weight={weight} />;
+      return <LinkedinLogoIcon size={size} color={color} weight={weight} {...props}/>;
     case "paper_plane_right":
-      return <PaperPlaneRightIcon size={size} color={color} weight={weight} />;
+      return <PaperPlaneRightIcon size={size} color={color} weight={weight} {...props}/>;
     case "instagram_logo":
-      return <InstagramLogoIcon size={size} color={color} weight={weight} />;
+      return <InstagramLogoIcon size={size} color={color} weight={weight} {...props}/>;
     case "phone":
-      return <PhoneIcon size={size} color={color} weight={weight} />;
+      return <PhoneIcon size={size} color={color} weight={weight} {...props}/>;
     case "at":
-      return <AtIcon size={size} color={color} weight={weight} />;
+      return <AtIcon size={size} color={color} weight={weight} {...props}/>;
     default:
       return null;
   }

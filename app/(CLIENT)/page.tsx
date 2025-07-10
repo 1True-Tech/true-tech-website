@@ -10,7 +10,7 @@ import Icons from "../../components/ui/Icons";
 
 export default function Home() {
   return (
-    <main className="w-full flex gap-[50px] flex-col h-[200vh]">
+    <main className="w-full flex gap-[50px] flex-col">
       <HeroSection/>
       <AboutSection/>
       <HowWeWorkSection/>
