@@ -8,6 +8,8 @@
   --secondary: #1f4abf;
   --secondary-500: #2962ff;
   --secondary-200: #BDCEFF;
+  --secondary-100: #EAEFFF;
+
 }
 
 @theme inline {
@@ -19,6 +21,7 @@
   --color-secondary: var(--secondary);
   --color-secondary-500: var(--secondary-500);
   --color-secondary-200: var(--secondary-200);
+  --color-secondary-100: var(--secondary-100);
   --color-neutral-900: #252525;
   --color-neutral-800: #303030;
   --color-neutral-700: #404040;

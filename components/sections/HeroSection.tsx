@@ -3,23 +3,24 @@ import WorldSvg from "../extras/worldsvg";
 import Image from "next/image";
 import CustomButton from "../ui/CustomButton";
 import Icons from "../ui/Icons";
+import { Section, SectionSummary } from "../ui/SectionSummaryContent";
 
 type Props = {};
 
 export default function HeroSection({}: Props) {
   return (
-    <section className="w-full pt-[15vh] pb-[10vh] sm:pt-[25vh] flex flex-col gap-20 relative px-2 sm:px-4 md:px-8 lg:px-16">
-      <WorldSvg className="w-full absolute top-0 left-0 pointer-events-none" />
+    <Section className="w-full pt-[15vh] pb-[10vh] sm:pt-[20vh] flex flex-col gap-20 isolate">
+      <WorldSvg className="w-full absolute top-0 left-0 pointer-events-none -z-10" />
       {/* headline */}
       <div className="w-full flex flex-col items-center justify-center gap-4">
-        <h1 className="max-w-lg text-2xl leading-10 md:text-4xl md:leading-12 text-center text-secondary font-bold">
+        <h1 className="max-w-lg text-2xl md:text-4xl leading-[140%] text-center text-secondary font-bold">
           Transform Your Online Presence with TrueTech
         </h1>
-        <p className="max-w-lg text-base md:text-xl text-center text-neutral-900">
+        <SectionSummary className="max-w-lg text-base md:text-xl text-center">
           At TrueTech, we specialize in web services, SEO, web development, and
           design to elevate your business. Let us help you create a stunning
           online experience that drives results.
-        </p>
+        </SectionSummary>
         <CustomButton variant="fill" rightIcon={<Icons icon_name="arrow_right" weight="fill" />}>Start your project</CustomButton>
       </div>
       <div className="w-full flex items-end relative">
@@ -51,6 +52,6 @@ export default function HeroSection({}: Props) {
           />
         </span>
       </div>
-    </section>
+    </Section>
   );
 }
