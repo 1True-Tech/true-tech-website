@@ -50,6 +50,7 @@ interface ButtonProps
   leftIcon?: React.ReactNode;
   rightIcon?: React.ReactNode;
   children?: React.ReactNode;
+  disabled?: boolean;
 }
 
 export default function Button({
@@ -60,6 +61,7 @@ export default function Button({
   rightIcon,
   className,
   children,
+  disabled,
   ...props
 }: ButtonProps) {
   // Only icon, no children

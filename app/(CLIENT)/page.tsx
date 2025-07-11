@@ -6,6 +6,7 @@ import TeamSection from "../../components/sections/TeamSection";
 import TestimonialsSection from "../../components/sections/TestimonialsSection";
 import WhyUsSection from "../../components/sections/WhyUsSection";
 
+
 export default function Home() {
   return (
     <main className="w-full flex gap-[50px] flex-col">
