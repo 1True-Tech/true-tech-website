@@ -56,7 +56,13 @@ export default function HowWeWorkProcessCard({
       )}
     >
       {/* heading */}
-      <div className="w-full flex gap-3 items-center">
+      <div className={clsx(
+        "w-full flex gap-3 items-center duration-300",
+        {
+          "translate-y-0":position === "in",
+          "-translate-y-2":position === "out",
+        }
+      )}>
         {/* icon */}
         <Icons
           icon_name={icon_name}
@@ -89,7 +95,10 @@ export default function HowWeWorkProcessCard({
           />
         </span>
         {/* description */}
-        <p className="text-neutral-900 text-xs sm:text-sm leading-[160%]">
+        <p className={clsx("text-neutral-900 delay-150 duration-300 text-xs sm:text-sm leading-[160%]",{
+          "translate-y-0":position === "in",
+          "-translate-y-2":position === "out",
+        })}>
           {description}
         </p>
       </div>

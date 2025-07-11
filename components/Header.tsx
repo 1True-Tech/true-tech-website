@@ -10,7 +10,7 @@ export default function Header({}: Props) {
   const {section} = useScrollView()
   return (
     <header className={clsx(
-      "w-full py-4 px-2 sm:px-4 md:px-8 lg:px-16 flex justify-between duration-500 isolate z-50 sticky top-0 bg-white/30 backdrop-blur-lg",
+      "w-full py-4 px-2 sm:px-4 md:px-8 lg:px-16 flex justify-between duration-200 isolate z-50 sticky top-0 bg-white/30 backdrop-blur-lg",
       {
         "!bg-white":section === "why-us-section"
       }

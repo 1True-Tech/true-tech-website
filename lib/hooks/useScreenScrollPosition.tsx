@@ -1,22 +1,25 @@
 import useGSAP from "@/lib/hooks/UseGsap";
 import gsap from "gsap";
 import React, { createContext, useContext, useRef, useState } from "react";
+interface SE {
+  s: string;
+  e: string;
+}
 interface screenView {
   section?: string;
   setSection: (val: string) => void;
-  setStartEnd: React.Dispatch<React.SetStateAction<{
-    s: string;
-    e: string;
-}>>;
+  setStartEnd: React.Dispatch<
+    React.SetStateAction<{
+      section: SE;
+      main: SE;
+    }>
+  >;
   ref?: React.RefObject<HTMLDivElement | null>;
 }
 const ScrollContext = createContext<screenView>({
   section: "",
   setSection(val) {},
-  setStartEnd(val) {
-      
-  },
-
+  setStartEnd(val) {},
 });
 
 export const useScrollView = () => {
@@ -27,10 +30,20 @@ export const useScrollView = () => {
   return scrollView;
 };
 
-export const ScrollViewProvider = ({ children }: { children?: React.ReactNode }) => {
+export const ScrollViewProvider = ({
+  children,
+}: {
+  children?: React.ReactNode;
+}) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const [section, setSection] = useState<string>();
-  const [startEnd, setStartEnd] = useState<{s:string, e:string}>({e:"bottom", s:"top"});
+  const [startEnd, setStartEnd] = useState<{
+    section: SE;
+    main: SE;
+  }>({
+    section: { e: "bottom", s: "top" },
+    main: { e: "top", s: "top" },
+  });
 
   useGSAP(() => {
     const card = containerRef.current;
@@ -38,8 +51,8 @@ export const ScrollViewProvider = ({ children }: { children?: React.ReactNode })
     gsap.to(card, {
       scrollTrigger: {
         trigger: card,
-        start: `${startEnd.s} 150px`,
-        end: `${startEnd.e} top`,
+        start: `${startEnd.section.s} ${startEnd.main.s}`,
+        end: `${startEnd.section.e} ${startEnd.main.e}`,
         toggleActions: "play reverse play reverse",
         onEnter() {
           setSection(containerRef.current?.id);
@@ -56,6 +69,8 @@ export const ScrollViewProvider = ({ children }: { children?: React.ReactNode })
       },
       ease: "none",
     });
+  }, {
+    dependencies:[startEnd]
   });
 
   return (
@@ -64,7 +79,7 @@ export const ScrollViewProvider = ({ children }: { children?: React.ReactNode })
         setSection,
         section,
         ref: containerRef,
-        setStartEnd
+        setStartEnd,
       }}
     >
       {children}
