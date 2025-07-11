@@ -1,42 +1,40 @@
-"use client"
-
-import React from 'react';
-import { motion } from 'framer-motion';
-import Link from 'next/link';
-import {
-  Twitter,
-  Linkedin,
-  Instagram,
-  Dribbble,
-} from 'lucide-react';
+import Link from "next/link";
+import Icons from "./Icons";
+import Button from "./Button";
 
 const SocialIcons = () => {
-    const socialLinks = [
-        {
-          name: 'Twitter',
-          url: 'https://twitter.com/yourhandle',
-          icon: <Twitter className="w-5 h-5" />,
-          color: 'hover:text-[#1DA1F2]'
-        },
-        {
-          name: 'LinkedIn',
-          url: 'https://linkedin.com/in/yourprofile',
-          icon: <Linkedin className="w-5 h-5" />,
-          color: 'hover:text-[#0A66C2]'
-        },
-        {
-          name: 'Instagram',
-          url: 'https://instagram.com/yourhandle',
-          icon: <Instagram className="w-5 h-5" />,
-          color: 'hover:text-[#E1306C]'
-        },
-        {
-          name: 'Dribbble',
-          url: 'https://dribbble.com/yourprofile',
-          icon: <Dribbble className="w-5 h-5" />,
-          color: 'hover:text-[#EA4C89]'
-        }
-      ];
+  const socialLinks = [
+    {
+      name: "Twitter",
+      url: "https://twitter.com/yourhandle",
+      icon: <Icons icon_name="twitter_logo" weight="fill" className="size-5" />,
+      color: "hover:text-[#1DA1F2]",
+    },
+    {
+      name: "LinkedIn",
+      url: "https://linkedin.com/in/yourprofile",
+      icon: (
+        <Icons icon_name="linkedin_logo" weight="fill" className="w-5 h-5" />
+      ),
+      color: "hover:text-[#0A66C2]",
+    },
+    {
+      name: "Instagram",
+      url: "https://instagram.com/yourhandle",
+      icon: (
+        <Icons icon_name="instagram_logo" weight="fill" className="w-5 h-5" />
+      ),
+      color: "hover:text-[#E1306C]",
+    },
+    {
+      name: "Dribbble",
+      url: "https://dribbble.com/yourprofile",
+      icon: (
+        <Icons icon_name="dribble_logo" weight="fill" className="w-5 h-5" />
+      ),
+      color: "hover:text-[#EA4C89]",
+    },
+  ];
 
   return (
     <div className="max-w-7xl mx-auto px-4">
@@ -50,23 +48,46 @@ const SocialIcons = () => {
       </div>
       <div className="flex justify-center gap-6">
         {socialLinks.map((link, index) => (
-          <Link
+          <Button
             key={index}
-            href={link.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label={link.name}
-            className={`flex items-center justify-center w-12 h-12 rounded-full 
-                       bg-white dark:bg-gray-800 shadow-md hover:shadow-lg 
-                       transition-all duration-300 ${link.color}
-                       border border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-300`}
-          >
-            {link.icon}
-          </Link>
+            variant="primary"
+            className={`flex items-center justify-center w-12 h-12 rounded-full`}
+            options={{
+              background: "bg-primary",
+              border: "border border-secondary",
+              hoverBg: "hover:bg-primary/95",
+              hoverText: link.color,
+            }}
+            rightIcon={
+              <Link
+                href={link.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={link.name}
+                className={link.color}
+              >
+                {link.icon}
+              </Link>
+            }
+          />
         ))}
       </div>
     </div>
   );
 };
+
+// <Button
+//   variant="fill"
+//   options={{
+//     background: "bg-pink-500",
+//     border: "border border-pink-600",
+//     text: "text-white",
+//     hoverBg: "hover:bg-pink-600",
+//     hoverText: "hover:text-white",
+//     shadow: "shadow-[0_4px_20px_rgba(236,72,153,0.25)]",
+//   }}
+// >
+//   Custom Color
+// </Button>
 
 export default SocialIcons;

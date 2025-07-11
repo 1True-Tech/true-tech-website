@@ -1,17 +1,25 @@
-'use client'
+"use client";
+import { useScrollView } from "@/lib/hooks/useScreenScrollPosition";
+import { motion } from "framer-motion";
+import { useEffect } from "react";
 
-import { motion } from 'framer-motion';
-
-type Props = {}
+type Props = {};
 
 export default function WhyUsSection({}: Props) {
+  const {ref, setStartEnd} = useScrollView()
+useEffect(() => {
+  setStartEnd({e:"110%", s:"-100px"})
+}, [])
+
   return (
     <section className="w-full lg:px-16 my-6">
       <motion.div
+        ref={ref}
+        id="why-us-section"
         initial={{ opacity: 0, y: 60 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        transition={{ duration: 0.8, ease: 'easeOut' }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
         className="bg-gradient-to-r from-secondary via-blue-600 to-secondary text-white p-[20px] lg:p-[50px] flex flex-col gap-[20px] items-center rounded-[20px] lg:rounded-[50px]"
       >
         <motion.h4
@@ -38,7 +46,11 @@ export default function WhyUsSection({}: Props) {
           transition={{ delay: 0.3, duration: 0.6 }}
           className="max-w-3xl mx-auto text-[1.07rem] text-white text-center"
         >
-          At True-Tech, we combine deep expertise, transparent communication, and an agile approach to deliver custom digital solutions that drive real results. From discovery through long-term support, our dedicated team ensures your vision becomes a <br />high-impact reality—on time, on budget, and built to grow.
+          At True-Tech, we combine deep expertise, transparent communication,
+          and an agile approach to deliver custom digital solutions that drive
+          real results. From discovery through long-term support, our dedicated
+          team ensures your vision becomes a <br />
+          high-impact reality—on time, on budget, and built to grow.
         </motion.p>
 
         <div className="w-full flex flex-col gap-[20px] mt-4">
@@ -46,12 +58,12 @@ export default function WhyUsSection({}: Props) {
           <div className="w-full flex flex-col lg:flex-row gap-[20px] lg:justify-between items-center">
             {[
               {
-                title: 'Proven Expertise',
-                desc: 'With deep experience across industries, our team builds scalable, secure, and user-centric solutions tailored to your business needs.',
+                title: "Proven Expertise",
+                desc: "With deep experience across industries, our team builds scalable, secure, and user-centric solutions tailored to your business needs.",
               },
               {
-                title: 'Personalized Collaboration',
-                desc: 'We take time to understand your goals and challenges. Every solution is custom-built, ensuring alignment with your vision and budget.',
+                title: "Personalized Collaboration",
+                desc: "We take time to understand your goals and challenges. Every solution is custom-built, ensuring alignment with your vision and budget.",
               },
             ].map((item, idx) => (
               <motion.div
@@ -61,7 +73,7 @@ export default function WhyUsSection({}: Props) {
                 transition={{ delay: 0.2 * idx, duration: 0.6 }}
                 whileHover={{ scale: 1.03 }}
                 className={`border-2 border-white p-[20px] w-full ${
-                  idx % 2 === 0 ? 'lg:max-w-[425px]' : 'w-full'
+                  idx % 2 === 0 ? "lg:max-w-[425px]" : "w-full"
                 } min-h-[12.3rem] rounded-[10px] flex flex-col items-center gap-[24px] bg-blue-600`}
               >
                 <h2 className="font-bold tracking-tight text-white text-md sm:text-lg lg:text-xl leading-[140%]">
@@ -78,12 +90,12 @@ export default function WhyUsSection({}: Props) {
           <div className="w-full flex flex-col md:flex-row gap-[20px] lg:justify-between items-center">
             {[
               {
-                title: 'Agile & Transparent Process',
-                desc: 'Our agile approach keeps you involved and informed at every stage. You get regular updates, fast iterations, and complete clarity from start to finish.',
+                title: "Agile & Transparent Process",
+                desc: "Our agile approach keeps you involved and informed at every stage. You get regular updates, fast iterations, and complete clarity from start to finish.",
               },
               {
-                title: 'Long-Term Support & Results',
-                desc: 'Beyond launch, we stay with you—offering maintenance, performance upgrades, and strategic improvements to keep you growing.',
+                title: "Long-Term Support & Results",
+                desc: "Beyond launch, we stay with you—offering maintenance, performance upgrades, and strategic improvements to keep you growing.",
               },
             ].map((item, idx) => (
               <motion.div
