@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import { Mail, Phone, MapPin, Send } from 'lucide-react';
 import { sendEmail } from '@/actions/sendMail';
 import SocialIcons from '../ui/SocialIcons'
+import Button from '../ui/Button'
 
 type FormData = {
   name: string;
@@ -116,8 +117,8 @@ const ContactSection = () => {
 
   return (
     <section id="contact" className="py-16 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
+      <div className="max-w-7xl mx-auto md:px-6 lg:px-8">
+        <div className="text-center mb-16 px-3">
           <h4 className="relative w-fit mx-auto text-primary font-semibold mb-2 text-xl md:text-2xl leading-[140%] before:absolute before:content-[''] before:left-1/2 before:translate-x-[-50%] before:bottom-0 before:w-1/2 before:h-[2px] before:bg-secondary before:rounded-full">
             GET IN TOUCH
           </h4>
@@ -132,7 +133,7 @@ const ContactSection = () => {
         <div className="grid grid-cols-1 gap-12 lg:flex lg:flex-row-reverse">
           <div className="lg:w-2/3 lg:col-span-2 bg-blue-50/40 p-8 border border-gray-100">
             {isSubmitted ? (
-              <div className="text-center py-12">
+              <div className="text-center py-12 ">
                 <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-green-100 text-green-600 mb-4">
                   <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
@@ -142,12 +143,12 @@ const ContactSection = () => {
                 <p className="text-gray-600 max-w-md mx-auto">
                   Your message has been sent successfully. We'll get back to you within 24 hours.
                 </p>
-                <button
+                <Button
                   onClick={() => setIsSubmitted(false)}
-                  className="mt-6 px-6 py-2 bg-secondary text-white rounded-md hover:bg-blue-700 transition-colors"
+                  className="mt-6 px-6 py-2 bg-secondary text-white hover:bg-blue-700 transition-colors"
                 >
                   Send another message
-                </button>
+                </Button>
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-6">
@@ -222,11 +223,12 @@ const ContactSection = () => {
                   </div>
                 )}
 
-                <button
+                <Button disabled={isSubmitting} className="w-full py-3 disabled:opacity-70 disabled:cursor-not-allowed focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+                {/* <button
                   type="submit"
                   disabled={isSubmitting}
                   className="w-full flex items-center justify-center px-6 py-3 border border-transparent rounded-full shadow-sm text-white bg-secondary hover:bg-secondary focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors disabled:opacity-70 disabled:cursor-not-allowed"
-                >
+                > */}
                   {isSubmitting ? (
                     <>
                       <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
@@ -240,12 +242,13 @@ const ContactSection = () => {
                       Send Message <Send className="ml-2 h-5 w-5" />
                     </>
                   )}
-                </button>
+                  {/* </button> */}
+                  </Button>
               </form>
             )}
           </div>
 
-          <div className="lg:w-1/3 lg:col-span-1 space-y-2 md:space-y-3">
+          <div className="lg:w-1/3 lg:col-span-1 space-y-2 md:space-y-3 px-4">
             {contactInfo.map((item, index) => (
               <div key={index} className="flex items-start bg-blue-50/40 px-6 py-3">
                 <div className="bg-white p-3 rounded-lg mr-4 shadow-sm">

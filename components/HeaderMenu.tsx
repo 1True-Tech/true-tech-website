@@ -1,6 +1,6 @@
 "use client";
 import { useIsMobile } from "@/lib/hooks/use-mobile";
-import CustomButton from "./ui/CustomButton";
+import Button from "./ui/Button";
 import Icons from "./ui/Icons";
 import useGSAP from "@/lib/hooks/UseGsap";
 import gsap from "gsap";
@@ -9,7 +9,6 @@ import { SplitText } from "gsap/dist/SplitText";
 import React, { useRef, useState, useEffect } from "react";
 import Link from "next/link";
 import clsx from "clsx";
-import { b } from "framer-motion/client";
 import { HoveredElement } from "./ui/HoveredElement";
 
 type MenuItem = { label: string; url: string };
@@ -185,7 +184,7 @@ const MenuMobile = ({
         ))}
       </ul>
       <div className="w-full absolute bottom-0 flex items-center justify-center flex-col p-2 pb-4">
-        <CustomButton variant="fill" rightIcon={<Icons icon_name="arrow_right" weight="fill" />}>Get started</CustomButton>
+        <Button variant="fill" rightIcon={<Icons icon_name="arrow_right" weight="fill" />}>Get started</Button>
       </div>
     </div>
   );
@@ -214,19 +213,19 @@ export default function HeaderMenu() {
             <MenuNotMobile menus={menus} isOpen={isOpen} />
           </>
         )}
-        <CustomButton
+        <Button
           onClick={() => setIsOpen((o) => !o)}
           variant="outline"
           className="!text-secondary-500 !bg-transparent !border-none !shadow-none"
           leftIcon={<Icons icon_name="list" />}
         >
           {!isMobile && <em className="not-italic !hidden md:!flex">Menu</em>}
-        </CustomButton>
+        </Button>
       </nav>
       {!isMobile && (
-        <CustomButton variant="outline" className="!hidden md:!flex">
+        <Button variant="outline" className="!hidden md:!flex">
           Get started
-        </CustomButton>
+        </Button>
       )}
     </>
   );

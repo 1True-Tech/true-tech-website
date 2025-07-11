@@ -1,6 +1,4 @@
 import Image from "next/image"
-import CustomButton from "./ui/CustomButton"
-import Icons from "./ui/Icons"
 import HeaderMenu from "./HeaderMenu"
 
 type Props = {}

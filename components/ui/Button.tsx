@@ -1,7 +1,6 @@
 import React from "react";
 import clsx from "clsx";
 
-// Uses your theme variables and a more "liquid glass" Apple-like look
 const styling = {
   base:
     "cursor-pointer inline-flex items-center justify-center font-medium transition-all duration-200 !outline-none !ring-0 shadow-lg font-poppins",
@@ -43,7 +42,7 @@ const styling = {
   },
 };
 
-interface CustomButtonProps
+interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: keyof typeof styling.variants;
   rounded?: keyof typeof styling.rounded;
@@ -51,9 +50,10 @@ interface CustomButtonProps
   leftIcon?: React.ReactNode;
   rightIcon?: React.ReactNode;
   children?: React.ReactNode;
+  disabled?: boolean;
 }
 
-export default function CustomButton({
+export default function Button({
   variant = "fill",
   rounded = "full",
   size = "md",
@@ -61,8 +61,9 @@ export default function CustomButton({
   rightIcon,
   className,
   children,
+  disabled,
   ...props
-}: CustomButtonProps) {
+}: ButtonProps) {
   // Only icon, no children
   const onlyIcon =
     !children &&
