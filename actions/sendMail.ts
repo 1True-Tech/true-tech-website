@@ -10,9 +10,14 @@ type FormData = {
 };
 
 export async function sendEmail(formData: FormData) {
+  if (!process.env.EMAIL_USER || !process.env.EMAIL_PASSWORD) {
+    console.error('Email configuration is missing');
+    return { success: false, error: 'Email service is not configured properly' };
+  }
+
   // Create a transporter
   const transporter = nodemailer.createTransport({
-    service: 'gmail', // or your email service
+    service: 'gmail',
     auth: {
       user: process.env.EMAIL_USER,
       pass: process.env.EMAIL_PASSWORD,
@@ -151,6 +156,10 @@ export async function sendEmail(formData: FormData) {
     return { success: true };
   } catch (error) {
     console.error('Error sending email:', error);
-    return { success: false, error: 'Failed to send email' };
+    const errorMessage = error instanceof Error ? error.message : 'Failed to send email';
+    return { 
+      success: false, 
+      error: errorMessage.includes('Invalid login') ? 'Email service authentication failed' : 'Failed to send email'
+    };
   }
 }

@@ -197,7 +197,7 @@ export default function HeaderMenu() {
 
   const menus: MenuItem[] = [
     { label: "About", url: "#" },
-    { label: "Contact", url: "#" },
+    { label: "Contact", url: "/#contact" },
     { label: "Features", url: "#" },
     { label: "Pricing", url: "#" },
   ];

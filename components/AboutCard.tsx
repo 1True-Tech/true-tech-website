@@ -1,15 +1,12 @@
+import { ExtendedElement } from "@/types/index.";
 import clsx from "clsx";
-import React from "react";
 import Icons, { icon_name } from "./ui/Icons";
 
 type Props = {
     icon_name:icon_name;
     title:string;
     description:string;
-}&React.DetailedHTMLProps<
-  React.HTMLAttributes<HTMLHeadingElement>,
-  HTMLElement
->;
+}&ExtendedElement;
 
 export default function AboutCard({ icon_name,title,description, className, ...props }: Props) {
   return (

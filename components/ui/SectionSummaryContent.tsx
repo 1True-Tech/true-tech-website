@@ -1,9 +1,17 @@
-import clsx from 'clsx'
-import React from 'react'
+import { ExtendedElement } from "@/types/index.";
+import clsx from "clsx";
+import React from "react";
 
-type Props = {}
+type Props = {};
 
-export function SectionTagline({className, children, ...props}: React.DetailedHTMLProps<React.HTMLAttributes<HTMLHeadingElement>, HTMLHeadingElement>) {
+export function SectionTagline({
+  className,
+  children,
+  ...props
+}: React.DetailedHTMLProps<
+  React.HTMLAttributes<HTMLHeadingElement>,
+  HTMLHeadingElement
+>) {
   return (
     <h2 {...props} className={
         clsx(
@@ -14,7 +22,14 @@ export function SectionTagline({className, children, ...props}: React.DetailedHT
   )
 }
 
-export function SectionHeadline({className, children, ...props}: React.DetailedHTMLProps<React.HTMLAttributes<HTMLHeadingElement>, HTMLHeadingElement>) {
+export function SectionHeadline({
+  className,
+  children,
+  ...props
+}: React.DetailedHTMLProps<
+  React.HTMLAttributes<HTMLHeadingElement>,
+  HTMLHeadingElement
+>) {
   return (
     <h3 {...props} className={
         clsx(
@@ -25,24 +40,38 @@ export function SectionHeadline({className, children, ...props}: React.DetailedH
   )
 }
 
-export function SectionSummary({className, children, ...props}: React.DetailedHTMLProps<React.HTMLAttributes<HTMLHeadingElement>, HTMLHeadingElement>) {
+export function SectionSummary({
+  className,
+  children,
+  ...props
+}: React.DetailedHTMLProps<
+  React.HTMLAttributes<HTMLHeadingElement>,
+  HTMLHeadingElement
+>) {
   return (
-    <p {...props} className={
-        clsx(
-            "w-fit relative font-normal text-sm sm:text-base leading-[160%] text-neutral-900",
-            className,
-        )
-    }>{children}</p>
-  )
+    <p
+      {...props}
+      className={clsx(
+        "w-fit relative font-normal text-sm sm:text-base leading-[160%] text-neutral-900",
+        className
+      )}
+    >
+      {children}
+    </p>
+  );
 }
 
-export function Section({className, children, ...props}: React.DetailedHTMLProps<React.HTMLAttributes<HTMLHeadingElement>, HTMLElement>) {
+export function Section({
+  className,
+  children,
+  ...props
+}: ExtendedElement) {
   return (
-    <section {...props} className={
-        clsx(
-            "relative px-4 sm:px-8 md:px-12 lg:px-16",
-            className,
-        )
-    }>{children}</section>
-  )
+    <section
+      {...props}
+      className={clsx("relative px-4 sm:px-8 md:px-12 lg:px-16", className)}
+    >
+      {children}
+    </section>
+  );
 }

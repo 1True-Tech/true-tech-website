@@ -27,17 +27,17 @@ export default function AboutSection() {
           icon_name="browsers"
           title="Custom Web Development for Your Business Needs"
           description="We build responsive and user-friendly websites that drive engagement."
-       /> 
-       <AboutCard
+        />
+        <AboutCard
           icon_name="globe_simple"
           title="Boost Your Visibility with Expert SEO Services"
           description="Our SEO strategies ensure your site ranks higher on search engines."
-       /> 
-       <AboutCard
+        />
+        <AboutCard
           icon_name="cursor_click"
           title="Stunning Designs That Captivates and Converts"
           description="We create visually appealing designs that resonates with your audience."
-       /> 
+        />
       </section>
     </Section>
   );

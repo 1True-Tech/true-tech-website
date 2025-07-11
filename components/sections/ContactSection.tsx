@@ -3,10 +3,24 @@
 import React, { useState } from 'react';
 import { Mail, Phone, MapPin, Send } from 'lucide-react';
 import { sendEmail } from '@/actions/sendMail';
+import SocialIcons from '../ui/SocialIcons'
 
+type FormData = {
+  name: string;
+  email: string;
+  phone: string;
+  message: string;
+};
+
+type FieldErrors = {
+  name: string;
+  email: string;
+  phone: string;
+  message: string;
+};
 
 const ContactSection = () => {
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState<FormData>({
     name: '',
     email: '',
     phone: '',
@@ -16,28 +30,59 @@ const ContactSection = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [fieldErrors, setFieldErrors] = useState<FieldErrors>({
+    name: '',
+    email: '',
+    phone: '',
+    message: ''
+  });
+
+  const validateEmail = (email: string): boolean => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+  };
+
+  const validatePhone = (phone: string): boolean => {
+    if (!phone) return true; // Phone is optional
+    const phoneRegex = /^\+?[1-9]\d{1,14}$/;
+    return phoneRegex.test(phone.replace(/[\s()-]/g, ''));
+  };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
+    // Clear error when user types
+    if (fieldErrors[name as keyof FieldErrors]) {
+      setFieldErrors(prev => ({ ...prev, [name]: '' }));
+    }
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setIsSubmitting(true);
     setError(null);
-    
+    setIsSubmitting(true);
+  
+    const newErrors: FieldErrors = {
+      name: formData.name.trim() ? '' : 'Name is required',
+      email: !formData.email.trim() ? 'Email is required' : !validateEmail(formData.email) ? 'Please enter a valid email address' : '',
+      phone: !validatePhone(formData.phone) ? 'Please enter a valid phone number (+XX XXXX XXXXXX)' : '',
+      message: formData.message.trim() ? '' : 'Message is required',
+    };
+  
+    setFieldErrors(newErrors);
+  
+    const hasError = Object.values(newErrors).some(err => err !== '');
+    if (hasError) {
+      setIsSubmitting(false);
+      return;
+    }
+  
     try {
       const result = await sendEmail(formData);
-      
       if (result?.success) {
         setIsSubmitted(true);
-        setFormData({
-          name: '',
-          email: '',
-          phone: '',
-          message: '',
-        });
+        setFormData({ name: '', email: '', phone: '', message: '' });
+        setFieldErrors({ name: '', email: '', phone: '', message: '' });
       } else {
         setError(result?.error || 'Failed to send message');
       }
@@ -52,8 +97,8 @@ const ContactSection = () => {
     {
       icon: <Mail className="h-6 w-6 text-secondary" />,
       title: 'Email Us',
-      details: 'info@truetech.com',
-      action: 'mailto:info@truetech.com',
+      details: 'info@myarkconsult.com',
+      action: 'mailto:info@myarkconsult.com',
     },
     {
       icon: <Phone className="h-6 w-6 text-secondary" />,
@@ -84,30 +129,8 @@ const ContactSection = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
-          <div className="lg:col-span-1 space-y-2 md:space-y-8">
-            {contactInfo.map((item, index) => (
-              <div key={index} className="flex items-start bg-blue-50/40 p-6">
-                <div className="bg-white p-3 rounded-lg mr-4 shadow-sm">
-                  {item.icon}
-                </div>
-                <div>
-                  <h3 className="font-bold text-lg mb-1 text-gray-900">{item.title}</h3>
-                  <p className="text-gray-600 mb-2">{item.details}</p>
-                  <a
-                    href={item.action}
-                    className="text-blue-600 text-sm font-medium hover:underline flex items-center"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    Connect <span className="ml-1">→</span>
-                  </a>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          <div className="lg:col-span-2 bg-blue-50/40 p-8 border border-gray-100">
+        <div className="grid grid-cols-1 gap-12 lg:flex lg:flex-row-reverse">
+          <div className="lg:w-2/3 lg:col-span-2 bg-blue-50/40 p-8 border border-gray-100">
             {isSubmitted ? (
               <div className="text-center py-12">
                 <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-green-100 text-green-600 mb-4">
@@ -139,10 +162,10 @@ const ContactSection = () => {
                       name="name"
                       value={formData.name}
                       onChange={handleChange}
-                      required
-                      className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-secondary focus:border-transparent transition-colors"
+                      className={`w-full px-4 py-3 border ${fieldErrors.name ? 'border-red-500' : 'border-gray-300'} rounded-md focus:outline-none focus:ring-2 focus:ring-secondary focus:border-transparent transition-colors`}
                       placeholder="John Doe"
                     />
+                    {fieldErrors.name && <p className="text-red-500 text-sm mt-1">{fieldErrors.name}</p>}
                   </div>
                   <div>
                     <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
@@ -154,10 +177,10 @@ const ContactSection = () => {
                       name="email"
                       value={formData.email}
                       onChange={handleChange}
-                      required
-                      className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-secondary focus:border-transparent transition-colors"
+                      className={`w-full px-4 py-3 border ${fieldErrors.email ? 'border-red-500' : 'border-gray-300'} rounded-md focus:outline-none focus:ring-2 focus:ring-secondary focus:border-transparent transition-colors`}
                       placeholder="john@example.com"
                     />
+                    {fieldErrors.email && <p className="text-red-500 text-sm mt-1">{fieldErrors.email}</p>}
                   </div>
                 </div>
 
@@ -171,9 +194,10 @@ const ContactSection = () => {
                     name="phone"
                     value={formData.phone}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-secondary focus:border-transparent transition-colors"
+                    className={`w-full px-4 py-3 border ${fieldErrors.phone ? 'border-red-500' : 'border-gray-300'} rounded-md focus:outline-none focus:ring-2 focus:ring-secondary focus:border-transparent transition-colors`}
                     placeholder="+1 (555) 123-4567"
                   />
+                  {fieldErrors.phone && <p className="text-red-500 text-sm mt-1">{fieldErrors.phone}</p>}
                 </div>
 
                 <div>
@@ -186,10 +210,10 @@ const ContactSection = () => {
                     rows={5}
                     value={formData.message}
                     onChange={handleChange}
-                    required
-                    className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-secondary focus:border-transparent transition-colors"
+                    className={`w-full px-4 py-3 border resize-none ${fieldErrors.message ? 'border-red-500' : 'border-gray-300'} rounded-md focus:outline-none focus:ring-2 focus:ring-secondary focus:border-transparent transition-colors`}
                     placeholder="Tell us about your business challenges..."
                   ></textarea>
+                  {fieldErrors.message && <p className="text-red-500 text-sm mt-1">{fieldErrors.message}</p>}
                 </div>
 
                 {error && (
@@ -220,6 +244,30 @@ const ContactSection = () => {
               </form>
             )}
           </div>
+
+          <div className="lg:w-1/3 lg:col-span-1 space-y-2 md:space-y-3">
+            {contactInfo.map((item, index) => (
+              <div key={index} className="flex items-start bg-blue-50/40 px-6 py-3">
+                <div className="bg-white p-3 rounded-lg mr-4 shadow-sm">
+                  {item.icon}
+                </div>
+                <div>
+                  <h3 className="font-bold text-lg mb-1 text-gray-900">{item.title}</h3>
+                  <p className="text-gray-600 mb-1 text-sm">{item.details}</p>
+                  <a
+                    href={item.action}
+                    className="text-secondary text-sm font-medium hover:underline flex items-center"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Connect <span className="ml-1">→</span>
+                  </a>
+                </div>
+              </div>
+            ))}
+
+            <SocialIcons/>
+          </div> 
         </div>
       </div>
     </section>
