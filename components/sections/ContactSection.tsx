@@ -1,10 +1,10 @@
 "use client"
 
 import React, { useState } from 'react';
-import { Mail, Phone, MapPin, Send } from 'lucide-react';
 import { sendEmail } from '@/actions/sendMail';
 import SocialIcons from '../ui/SocialIcons'
 import Button from '../ui/Button'
+import Icons from '../ui/Icons';
 
 type FormData = {
   name: string;
@@ -96,19 +96,19 @@ const ContactSection = () => {
 
   const contactInfo = [
     {
-      icon: <Mail className="h-6 w-6 text-secondary" />,
+      icon: <Icons icon_name='envelop' className="h-6 w-6 text-secondary" />,
       title: 'Email Us',
       details: 'info@myarkconsult.com',
       action: 'mailto:info@myarkconsult.com',
     },
     {
-      icon: <Phone className="h-6 w-6 text-secondary" />,
+      icon: <Icons icon_name='phone' className="h-6 w-6 text-secondary" />,
       title: 'Call Us',
       details: '+ (234) 706-202-8202',
       action: 'tel:+2347062028202',
     },
     {
-      icon: <MapPin className="h-6 w-6 text-secondary" />,
+      icon: <Icons icon_name='map_pin' className="h-6 w-6 text-secondary" />,
       title: 'Visit Us',
       details: '123 Business Ave, Suite 500, New York, NY 10001',
       action: 'https://maps.google.com',
@@ -239,7 +239,7 @@ const ContactSection = () => {
                     </>
                   ) : (
                     <>
-                      Send Message <Send className="ml-2 h-5 w-5" />
+                      Send Message <Icons icon_name='paper_plane_right' className="ml-2 h-5 w-5" />
                     </>
                   )}
                   {/* </button> */}

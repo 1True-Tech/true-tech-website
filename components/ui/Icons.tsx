@@ -10,12 +10,16 @@ import {
   InstagramLogoIcon,
   LinkedinLogoIcon,
   ListIcon,
+  MapPinIcon,
   PaperPlaneRightIcon,
   PhoneIcon,
   QuotesIcon,
   RocketLaunchIcon,
   StrategyIcon,
   XLogoIcon,
+  EnvelopeSimpleIcon,
+  TwitterLogoIcon,
+  DribbbleLogoIcon,
 } from "@phosphor-icons/react/dist/ssr";
 
 export type icon_name =
@@ -29,16 +33,20 @@ export type icon_name =
   | "rocket_launch"
   | "headset"
   | "quotes"
-  | "x_logo"
+  | "twitter_logo"
   | "linkedin_logo"
   | "paper_plane_right"
   | "instagram_logo"
   | "phone"
+  | "envelop"
+  | "map_pin"
+  | "dribble_logo"
   | "at";
 
 interface Icon extends IconProps {
   icon_name: icon_name;
 }
+
 
 export default function Icons({
   icon_name,
@@ -49,37 +57,113 @@ export default function Icons({
 }: Icon) {
   switch (icon_name) {
     case "list":
-      return <ListIcon size={size} color={color} weight={weight} {...props}/>;
+      return <ListIcon size={size} color={color} weight={weight} {...props} />;
     case "arrow_right":
-      return <ArrowRightIcon size={size} color={color} weight={weight} {...props}/>;
+      return (
+        <ArrowRightIcon size={size} color={color} weight={weight} {...props} />
+      );
     case "browsers":
-      return <BrowsersIcon size={size} color={color} weight={weight} {...props}/>;
+      return (
+        <BrowsersIcon size={size} color={color} weight={weight} {...props} />
+      );
     case "globe_simple":
-      return <GlobeSimpleIcon size={size} color={color} weight={weight} {...props}/>;
+      return (
+        <GlobeSimpleIcon size={size} color={color} weight={weight} {...props} />
+      );
     case "cursor_click":
-      return <CursorClickIcon size={size} color={color} weight={weight} {...props}/>;
+      return (
+        <CursorClickIcon size={size} color={color} weight={weight} {...props} />
+      );
     case "binoculars":
-      return <BinocularsIcon size={size} color={color} weight={weight} {...props}/>;
+      return (
+        <BinocularsIcon size={size} color={color} weight={weight} {...props} />
+      );
     case "strategy":
-      return <StrategyIcon size={size} color={color} weight={weight} {...props}/>;
+      return (
+        <StrategyIcon size={size} color={color} weight={weight} {...props} />
+      );
     case "rocket_launch":
-      return <RocketLaunchIcon size={size} color={color} weight={weight} {...props}/>;
+      return (
+        <RocketLaunchIcon
+          size={size}
+          color={color}
+          weight={weight}
+          {...props}
+        />
+      );
     case "headset":
-      return <HeadsetIcon size={size} color={color} weight={weight} {...props}/>;
+      return (
+        <HeadsetIcon size={size} color={color} weight={weight} {...props} />
+      );
     case "quotes":
-      return <QuotesIcon size={size} color={color} weight={weight} {...props}/>;
-    case "x_logo":
-      return <XLogoIcon size={size} color={color} weight={weight} {...props}/>;
+      return (
+        <QuotesIcon size={size} color={color} weight={weight} {...props} />
+      );
+    case "twitter_logo":
+      return (
+        <TwitterLogoIcon size={size} color={color} weight={weight} {...props} />
+      );
     case "linkedin_logo":
-      return <LinkedinLogoIcon size={size} color={color} weight={weight} {...props}/>;
+      return (
+        <LinkedinLogoIcon
+          size={size}
+          color={color}
+          weight={weight}
+          {...props}
+        />
+      );
     case "paper_plane_right":
-      return <PaperPlaneRightIcon size={size} color={color} weight={weight} {...props}/>;
+      return (
+        <PaperPlaneRightIcon
+          size={size}
+          color={color}
+          weight={weight}
+          {...props}
+        />
+      );
     case "instagram_logo":
-      return <InstagramLogoIcon size={size} color={color} weight={weight} {...props}/>;
+      return (
+        <InstagramLogoIcon
+          size={size}
+          color={color}
+          weight={weight}
+          {...props}
+        />
+      );
     case "phone":
-      return <PhoneIcon size={size} color={color} weight={weight} {...props}/>;
+      return <PhoneIcon size={size} color={color} weight={weight} {...props} />;
     case "at":
-      return <AtIcon size={size} color={color} weight={weight} {...props}/>;
+      return <AtIcon size={size} color={color} weight={weight} {...props} />;
+    case "envelop":
+      return (
+        <EnvelopeSimpleIcon
+          size={size}
+          color={color}
+          weight={weight}
+          {...props}
+        />
+      );
+
+    case "map_pin":
+      return (
+        <MapPinIcon
+          size={size}
+          color={color}
+          weight={weight}
+          {...props}
+        />
+      );
+
+    case "dribble_logo":
+      return (
+        <DribbbleLogoIcon
+          size={size}
+          color={color}
+          weight={weight}
+          {...props}
+        />
+      );
+
     default:
       return null;
   }

@@ -1,11 +1,20 @@
+"use client"
 import Image from "next/image"
 import HeaderMenu from "./HeaderMenu"
+import { useScrollView } from "@/lib/hooks/useScreenScrollPosition"
+import clsx from "clsx"
 
 type Props = {}
 
 export default function Header({}: Props) {
+  const {section} = useScrollView()
   return (
-    <header className="w-full py-4 px-2 sm:px-4 md:px-8 lg:px-16 flex justify-between isolate z-50 sticky top-0 bg-white/30 backdrop-blur-lg">
+    <header className={clsx(
+      "w-full py-4 px-2 sm:px-4 md:px-8 lg:px-16 flex justify-between duration-500 isolate z-50 sticky top-0 bg-white/30 backdrop-blur-lg",
+      {
+        "!bg-white":section === "why-us-section"
+      }
+    )}>
       {/* logo */}
       <span className=" flex gap-1 items-center">
         <Image src={"/logo.png"} alt="logo" width={1024} height={1024} quality={100} className="size-8" />
