@@ -217,7 +217,7 @@ export default function HeaderMenu() {
           onClick={() => setIsOpen((o) => !o)}
           variant="outline"
           className="!text-secondary-500 !bg-transparent !border-none !shadow-none"
-          leftIcon={<Icons icon_name="list" />}
+          leftIcon={<Icons icon_name={!isOpen?"list":"cancel"} />}
         >
           {!isMobile && <em className="not-italic !hidden md:!flex">Menu</em>}
         </Button>

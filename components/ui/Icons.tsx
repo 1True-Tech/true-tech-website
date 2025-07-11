@@ -20,6 +20,7 @@ import {
   EnvelopeSimpleIcon,
   TwitterLogoIcon,
   DribbbleLogoIcon,
+  XIcon,
 } from "@phosphor-icons/react/dist/ssr";
 
 export type icon_name =
@@ -41,11 +42,14 @@ export type icon_name =
   | "envelop"
   | "map_pin"
   | "dribble_logo"
+  | "cancel"
   | "at";
 
 interface Icon extends IconProps {
   icon_name: icon_name;
 }
+
+
 
 
 export default function Icons({
@@ -132,6 +136,8 @@ export default function Icons({
       );
     case "phone":
       return <PhoneIcon size={size} color={color} weight={weight} {...props} />;
+      case "cancel":
+      return <XIcon size={size} color={color} weight={weight} {...props} />;
     case "at":
       return <AtIcon size={size} color={color} weight={weight} {...props} />;
     case "envelop":

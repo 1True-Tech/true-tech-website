@@ -8,7 +8,10 @@ type Props = {};
 export default function WhyUsSection({}: Props) {
   const {ref, setStartEnd} = useScrollView()
 useEffect(() => {
-  setStartEnd({e:"110%", s:"-100px"})
+  setStartEnd((s)=>({...s, main:{
+    ...s.main,
+    s:"170px",
+  }}))
 }, [])
 
   return (
