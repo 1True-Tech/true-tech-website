@@ -9,7 +9,7 @@ import WhyUsSection from "../../components/sections/WhyUsSection";
 
 export default function Home() {
   return (
-    <main className="w-full flex gap-[50px] flex-col">
+    <main className="w-full flex gap-0 flex-col">
       <HeroSection/>
       <AboutSection/>
       <HowWeWorkSection/>

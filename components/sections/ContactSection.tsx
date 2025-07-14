@@ -116,7 +116,7 @@ const ContactSection = () => {
   ];
 
   return (
-    <section id="contact" className="py-16 bg-white">
+    <section id="contact" className="pb-16 pt-0 md:pt-16 bg-white">
       <div className="max-w-7xl mx-auto md:px-6 lg:px-8">
         <div className="text-center mb-16 px-3">
           <h4 className="relative w-fit mx-auto text-primary font-semibold mb-2 text-xl md:text-2xl leading-[140%] before:absolute before:content-[''] before:left-1/2 before:translate-x-[-50%] before:bottom-0 before:w-1/2 before:h-[2px] before:bg-secondary before:rounded-full">
