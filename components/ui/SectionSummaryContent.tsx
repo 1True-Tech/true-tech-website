@@ -2,7 +2,6 @@ import { ExtendedElement } from "@/types/index.";
 import clsx from "clsx";
 import React from "react";
 
-type Props = {};
 
 export function SectionTagline({
   className,
@@ -69,7 +68,7 @@ export function Section({
   return (
     <section
       {...props}
-      className={clsx("relative px-4 sm:px-8 md:px-12 lg:px-16", className)}
+      className={clsx("relative my-[25px] px-4 sm:px-8 md:px-12 lg:px-16", className)}
     >
       {children}
     </section>

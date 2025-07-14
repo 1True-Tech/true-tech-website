@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import { useRef } from "react";
 import TestimonialCard from "../TestimonialCard";
 import {
@@ -7,31 +7,56 @@ import {
   SectionSummary,
   SectionTagline,
 } from "../ui/SectionSummaryContent";
-import useGSAP from "@/lib/hooks/UseGsap"
+import useGSAP from "@/lib/hooks/UseGsap";
 import gsap from "gsap";
 import { useIsMobile } from "@/lib/hooks/use-mobile";
-
+import { useCustomScrollSpeed } from "@/lib/hooks/useCustomScrolSpeed";
 
 export default function TestimonialsSection() {
-      const containerRef = useRef<HTMLElement>(null)
-          const isMobile = useIsMobile(640)
-      useGSAP(()=>{
-          const container = containerRef.current
-          const pin = isMobile?{}:{pin:"#testimonialSectionContent"}
-          if(!container) return
-          gsap.to(container, {
-              scrollTrigger:{
-                  trigger: container,
-                  start: "top top",
-                  end: "bottom bottom",
-                  ...pin
-              },
-          })
-      })
+  const containerRef = useRef<HTMLElement>(null);
+  const isMobile = useIsMobile(640);
+  const runCustomSpeed = useCustomScrollSpeed();
+
+  useGSAP(() => {
+    const container = containerRef.current;
+    const pin = isMobile ? {} : { pin: "#testimonialSectionContent" };
+    if (!container) return;
+    const tween = gsap.to(container, {
+      scrollTrigger: {
+        trigger: container,
+        start: "top top",
+        end: "bottom bottom",
+        onEnter() {
+          runCustomSpeed(0.2);
+        },
+        onLeave() {
+          runCustomSpeed(1);
+        },
+        onEnterBack() {
+          runCustomSpeed(0.2);
+        },
+        onLeaveBack() {
+          runCustomSpeed(1);
+        },
+        ...pin,
+      },
+    });
+    return () => {
+      tween.scrollTrigger?.kill();
+      tween.kill();
+    };
+  }, {dependencies:[isMobile]});
   return (
-    <Section ref={containerRef} id="testimonialSection" className="w-full py-10 sm:py-16">
+    <Section
+      ref={containerRef}
+      id="testimonialSection"
+      className="w-full py-10 sm:py-16"
+    >
       {/* content */}
-      <div id="testimonialSectionContent" className="w-full max-w-7xl grid grid-cols-1 sm:grid-cols-[1.5fr_2fr] gap-5 items-center m-auto">
+      <div
+        id="testimonialSectionContent"
+        className="w-full max-w-7xl grid grid-cols-1 sm:grid-cols-[1.5fr_2fr] gap-5 items-center m-auto"
+      >
         <section className="flex flex-col gap-4">
           <SectionTagline>What our clients say!</SectionTagline>
           <SectionHeadline>
