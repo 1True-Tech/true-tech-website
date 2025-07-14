@@ -25,12 +25,12 @@ export default function TeamMemberCard({
     <article
       {...props}
       className={clsx(
-        "w-[90vw] md:w-[80%] h-fit p-4 shrink-0 flex flex-col gap-3 relative border-2 border-primary-500 shadow-md shadow-primary/10 duration-300 rounded-md border-l-8",
+        "w-[90vw] md:w-[80%] max-w-sm h-fit p-4 shrink-0 flex flex-col gap-3 relative border-2 border-primary-500 shadow-md shadow-primary/10 duration-300 rounded-md border-l-8",
         className
       )}
     >
       {/* image */}
-      <div className="w-full h-[40vh] md:h-[50vh] overflow-hidden rounded-sm shrink-0 flex items-center justify-center">
+      <div className="w-full h-[40vh] md:h-[30vh] overflow-hidden rounded-sm shrink-0 flex items-center justify-center">
         <Image
           src={image}
           alt={`${member_name} image`}
