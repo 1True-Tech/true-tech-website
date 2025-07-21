@@ -122,7 +122,7 @@ const ContactSection = () => {
           <h4 className="relative w-fit mx-auto text-primary font-semibold mb-2 text-xl md:text-2xl leading-[140%] before:absolute before:content-[''] before:left-1/2 before:translate-x-[-50%] before:bottom-0 before:w-1/2 before:h-[2px] before:bg-secondary before:rounded-full">
             GET IN TOUCH
           </h4>
-          <h2 className="font-bold tracking-tight text-gray-900 text-3xl sm:text-5xl lg:text-5xl mb-4">
+          <h2 id="contact_us" className="font-bold tracking-tight text-gray-900 text-3xl sm:text-5xl lg:text-5xl mb-4">
             <span className="leading-[140%] text-secondary">Contact Us</span> <span className="text-primary">Today</span>
           </h2>
           <p className="max-w-2xl mx-auto text-lg text-gray-600">

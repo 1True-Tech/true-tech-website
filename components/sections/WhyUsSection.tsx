@@ -109,7 +109,7 @@ useEffect(() => {
                 whileHover={{ scale: 1.03 }}
                 className="border-2 border-white p-[20px] w-full min-h-[12.3rem] rounded-[10px] flex flex-col items-center gap-[24px] bg-blue-600"
               >
-                <h2 className="font-bold tracking-tight text-white text-md sm:text-lg lg:text-xl leading-[140%]">
+                <h2 id="true_tech_advantage" className="font-bold tracking-tight text-white text-md sm:text-lg lg:text-xl leading-[140%]">
                   {item.title}
                 </h2>
                 <p className="text-[1.07rem] text-white text-center">
