@@ -39,7 +39,7 @@ const SocialIcons = () => {
   return (
     <div className="max-w-7xl mx-auto px-4">
       <div className="text-center mb-2">
-        <h2 className="text-3xl font-bold text-gray-900 dark:text-white">
+        <h2 id="follow_us_on_social_media" className="text-3xl font-bold text-gray-900 dark:text-white">
           Connect With Us
         </h2>
         <p className="mt-2 text-lg text-gray-600 dark:text-gray-300">
